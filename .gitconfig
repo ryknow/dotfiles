@@ -1,0 +1,14 @@
+[core]
+  editor = vim
+[color]
+  ui = true
+[alias]
+  unstage = reset HEAD
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+[user]
+  name = ryknow
+  email = ryanknowles@gmail.com
