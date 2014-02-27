@@ -18,6 +18,7 @@ if [ -f ~/.git-completion.sh ]; then
 fi
 
 # Misc aliases
+alias ll='ls -l'
 alias more='less'
 alias clr='clear'
 alias set_ctags='ctags --extra=+f --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*'
