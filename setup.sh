@@ -2,15 +2,15 @@
 
 PWD=`pwd -P`
 # Setup dotfiles
-#DOTFILES=( .bashrc .dir_colors .git-completion.sh .vimrc .tmux.conf .gitconfig )
-#for FILE in "${DOTFILES[@]}"; do
-#  if [ -f ~/${FILE} ]; then
-#    echo "Moving old ${FILE} file"
-#    mv ~/${FILE} ~/${FILE}_old
-#  fi
-#  echo "Adding Symbolic Link for ${FILE} to home directory"
-#  ln -s ${PWD}/${FILE} ~/${FILE}
-#done
+DOTFILES=( .bashrc .dir_colors .git-completion.sh .vimrc .tmux.conf .gitconfig )
+for FILE in "${DOTFILES[@]}"; do
+  if [ -f ~/${FILE} ]; then
+    echo "Moving old ${FILE} file"
+    mv ~/${FILE} ~/${FILE}_old
+  fi
+  echo "Adding Symbolic Link for ${FILE} to home directory"
+  ln -s ${PWD}/${FILE} ~/${FILE}
+done
 
 # Setup VIM
 DIRS=( .vim .vim/autoload .vim/bundle .vim/colors )
