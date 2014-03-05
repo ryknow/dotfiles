@@ -37,6 +37,7 @@ function g {
 
 function git-full-branch-name {
     echo $(git symbolic-ref HEAD 2>/dev/null | awk -Frefs/heads/ {'print $NF'})
+}
 
 alias gp='git push origin $(git-full-branch-name)'
 
