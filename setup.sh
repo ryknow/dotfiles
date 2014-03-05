@@ -31,7 +31,7 @@ fi
 
 pushd $PWD > /dev/null 
 cd ~/.vim/bundle
-PLUGINS=( kchmck/vim-coffee-script tpope/vim-endwise tpope/vim-fugitive pangloss/vim-javascript scrooloose/nerdtree godlygeek/tabular )
+PLUGINS=( jnwhiteh/vim-golang kchmck/vim-coffee-script tpope/vim-endwise tpope/vim-fugitive pangloss/vim-javascript scrooloose/nerdtree godlygeek/tabular )
 for PLUGIN in "${PLUGINS[@]}"; do
   DIRECTORY=`echo $PLUGIN | sed -e 's/.*\///g'`
   if [ ! \( -d ~/.vim/bundle/${DIRECTORY} \) ]; then
