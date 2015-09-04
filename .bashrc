@@ -22,6 +22,9 @@ alias ll='ls -l'
 alias more='less'
 alias clr='clear'
 alias set_ctags='ctags --extra=+f --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*'
+alias gobrew='cd /usr/local/Cellar'
+alias docker_rm_all_images='docker rmi -f $(docker images -a -q)'
+alias docker_rm_all_containers='docker rm -f $(docker ps -a -q)'
 
 # Git aliases
 alias gcm='git commit -m'
@@ -108,7 +111,8 @@ function _prompt_command {
 }
 
 PROMPT_COMMAND=_prompt_command
+export NODE_PATH=/usr/local/lib/node_modules
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # Load RVM into a shell session "as a function"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/.rvm/bin:/usr/local/share/npm/bin # Add RVM to PATH for scripting

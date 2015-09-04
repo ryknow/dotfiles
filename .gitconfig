@@ -9,6 +9,18 @@
   st = status
   br = branch
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  gr = log --graph --full-history --all --color --pretty=format:\"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s [%an]\"
+  gr1 = log --graph --full-history --date=short --all --color --pretty=format:\"%x1b[31m%h%x09%x1b[32m%C(bold black) (%cd)%Creset%Cgreen%d%x1b([0m%x20%s [%an]\"
+  diffw = diff --color-words
+  logw = log --color-words
+  log1 = log --stat --oneline
+  lol = log --stat --graph --decorate --abbrev-commit --color-words --pretty=format:'%Cred%h%Creset -%C(bold black)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset'
+  lola = log --stat --graph --decorate --abbrev-commit --color-words --pretty=format:'%Cred%h%Creset -%C(bold black)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset' --all
+  lg = "log --stat --graph --abbrev-commit --date=relative" --pretty=format:'%Cred%h%Creset -%C(bold black)%d%Creset %s %C(bold green)(%cr) %C(bold blue)<%an>%Creset'
+[push]
+	default = matching
+[core]
+	excludesfile = ~/.gitignore
 [user]
   name = ryknow
   email = ryanknowles@gmail.com
