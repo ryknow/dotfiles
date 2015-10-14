@@ -1,4 +1,4 @@
-#!/bin/bash
+/bin/bash
 
 PWD=`pwd -P`
 # Setup dotfiles
@@ -15,7 +15,7 @@ for FILE in "${DOTFILES[@]}"; do
 done
 
 # Setup VIM
-DIRS=( .vim .vim/autoload .vim/bundle .vim/colors )
+DIRS=( .vim .vim/autoload .vim/bundle )
 for DIR in "${DIRS[@]}"; do
   if [ ! \( -d ~/${DIR} \) ]; then
     echo "Creating directory ${DIR}"
@@ -26,12 +26,13 @@ done
 # Add plugins to vim
 if [ ! \( -f ~/.vim/autoload/pathogen.vim \) ]; then
   echo "Adding pathogen.vim"
-  curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe./pathogen.vim
 fi
 
 pushd $PWD > /dev/null 
 cd ~/.vim/bundle
-PLUGINS=( jnwhiteh/vim-golang kchmck/vim-coffee-script tpope/vim-endwise tpope/vim-fugitive pangloss/vim-javascript scrooloose/nerdtree godlygeek/tabular )
+PLUGINS=( jnwhiteh/vim-golang kchmck/vim-coffee-script tpope/vim-endwise tpope/vim-fugitive \
+  pangloss/vim-javascript scrooloose/nerdtree godlygeek/tabular altercation/vim-colors-solarized)
 for PLUGIN in "${PLUGINS[@]}"; do
   DIRECTORY=`echo $PLUGIN | sed -e 's/.*\///g'`
   if [ ! \( -d ~/.vim/bundle/${DIRECTORY} \) ]; then
@@ -42,12 +43,14 @@ done
 
 # Add vividchalk colorscheme to vim
 if [ ! \( -f ~/.vim/colors/vividchalk.vim \) ]; then
+  cd ~/.vim
   echo "Adding vivichalk colorscheme to vim"
-  curl -Sso ~/.vim/colors/vividchalk.vim https://raw.github.com/tpope/vim-vividchalk/master/colors/vividchalk.vim
+  git clone git@github.com:tpope/vim-vividchalk.git
 fi
 
 # Install RVM
 cd $HOME
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 
 curl -sSL https://get.rvm.io | bash -s stable
 
 popd > /dev/null

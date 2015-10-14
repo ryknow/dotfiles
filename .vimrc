@@ -1,7 +1,7 @@
 set nocompatible
 
-call pathogen#infect()
-call pathogen#helptags()
+execute pathogen#infect()
+execute pathogen#helptags()
 
 filetype plugin indent on
 
@@ -29,7 +29,6 @@ set visualbell
 set expandtab
 set backspace=indent,eol,start
 
-set nu
 set history=1000
 set statusline=%f
 set statusline+=%*
@@ -40,6 +39,8 @@ set statusline+=\ %c " cursor column
 set statusline+=%l/%L "cursor line / total lines
 set statusline+=\ %P
 
+let g:solarized_termcolors=256
+set t_Co=256
 set background=dark
 colorscheme solarized
 
