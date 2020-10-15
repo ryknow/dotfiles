@@ -32,7 +32,8 @@ fi
 pushd $PWD > /dev/null 
 cd ~/.vim/bundle
 PLUGINS=( jnwhiteh/vim-golang kchmck/vim-coffee-script tpope/vim-endwise tpope/vim-fugitive \
-  pangloss/vim-javascript scrooloose/nerdtree godlygeek/tabular altercation/vim-colors-solarized)
+  pangloss/vim-javascript scrooloose/nerdtree godlygeek/tabular altercation/vim-colors-solarized \
+  leshill/vim-json tpope/vim-surround)
 for PLUGIN in "${PLUGINS[@]}"; do
   DIRECTORY=`echo $PLUGIN | sed -e 's/.*\///g'`
   if [ ! \( -d ~/.vim/bundle/${DIRECTORY} \) ]; then
@@ -53,6 +54,8 @@ cd $HOME
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 
 curl -sSL https://get.rvm.io | bash -s stable
 
+# Install NVM
+cd $HOME
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
+
 popd > /dev/null
-
-
